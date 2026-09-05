@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNPCBEA - TNPCB Pensioners Association</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* 20% Opacity Full Width & Height Background Image */
+        .bg-watermark-full {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: fill;
+            opacity: 0.20;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Side Images - Stretched Full Height, 2 Inches Wide */
+        .side-image-left {
+            position: fixed;
+            top: 50px;
+            left: 0;
+            width: 2in;
+            height: 80vh;
+            object-fit: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .side-image-right {
+            position: fixed;
+            top: 100px;
+            right: 0;
+            width: 2in;
+            height: 86vh;
+            object-fit: fill;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @media (max-width: 1024px) {
+            .side-image-left, .side-image-right {
+                display: none;
+            }
+        }
+
+        /* Header & Branding */
+        header {
+            background-color: #ffffff;
+            padding: 5px 160px;
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Left Header Logo */
+        .header-logo {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            width: 1.5in;
+            height: 1.3in;
+            object-fit: contain;
+        }
+
+        /* Right Header Image */
+        .header-building-logo {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            width: 1.5in;
+            height: 1.5in;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 900px) {
+            header {
+                padding: 15px 20px;
+            }
+            .header-logo, .header-building-logo {
+                position: static;
+                display: inline-block;
+                margin: 5px 10px;
+            }
+        }
+
+        header h1 {
+            color: #0056b3;
+            font-size: 30px;
+            margin-bottom: 2px;
+            font-weight: bold;
+        }
+
+        header h2 {
+            color: #444;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #666;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #0056b3;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 3px 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #004085;
+        }
+
+        /* Dropdown Menu Logic */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            min-width: 240px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            border-radius: 0 0 4px 4px;
+            list-style: none;
+        }
+
+        .dropdown li a {
+            color: #333;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .dropdown li a:hover {
+            background-color: #f8f9fa;
+            color: #0056b3;
+        }
+
+        .nav-links > li:hover .dropdown {
+            display: block;
+        }
+
+        /* Main Content Styling */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .announcement-bar {
+            background-color: rgba(255, 230, 100, 0.9);
+            border-left: 5px solid #ffc107;
+            padding: 3px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .thirukkural-scroll {
+            overflow: hidden;
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        .thirukkural-line {
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+            line-height: 1.5;
+        }
+
+        .thirukkural-line .scroll-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-kural 24s linear infinite;
+        }
+
+        .thirukkural-line.kural-line .scroll-content {
+            font-size: 24px;
+            font-weight: bold;
+            color: #7a3e00;
+        }
+
+        .thirukkural-line.meaning-line .scroll-content {
+            font-size: 17px;
+            font-weight: bold;
+            color: #444;
+            animation-duration: 38s;
+        }
+
+        @keyframes scroll-kural {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* Dynamic iFrame Container */
+        .content-frame {
+            width: 100%;
+            height: 75vh;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { flex-direction: column; width: 100%; }
+            .dropdown { position: relative; top: 0; min-width: 100%; }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Images -->
+    <img src="Home_Img/background.jpg" alt="Eco Background" class="bg-watermark-full">
+    <img src="Home_Img/vilakku2b.png" alt="Vilakku" class="side-image-left">
+    <img src="Home_Img/rightside.png" alt="rightside" class="side-image-right">
+
+    <header>
+        <img src="Home_Img/TNPCBPA_Logo.jpg" alt="TNPCBPA Logo" class="header-logo">
+        <h1>தமிழ்நாடு மாசுக்கட்டுப்பாட்டு வாரிய ஓய்வூதியர் சங்கம்</h1>
+        <h2>TAMIL NADU POLLUTION CONTROL BOARD PENSIONERS ASSOCIATION</h2>
+        <p><strong>Registration No:</strong> 170/2012-(27/1975)</p>
+        <img src="Home_Img/CorpOfficeBld2.png" alt="TNPCB Building" class="header-building-logo">
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="html/welcome.html" target="contentFrame">முகப்பு / Home</a></li>
+                
+                <li>
+                    <a href="#">எங்களைப் பற்றி / About Us ▾</a>
+                    <ul class="dropdown">
+                        <li><a href="html/01-who_we_are.html" target="contentFrame">நாங்கள் யார் / Who We Are</a></li>
+                        <li><a href="html/02-what_we_do.html" target="contentFrame">நாங்கள் செய்யும் பணிகள் / What We Do</a></li>
+                        <li><a href="html/10-history_and_growth.html" target="contentFrame">வரலாறு / History</a></li>
+                        <li><a href="html/20-Vision_and_objectives.html" target="contentFrame">நோக்கம் / Vision & Objectives</a></li>
+                        <li><a href="html/05-latest_announcements.html" target="contentFrame">சமீபத்திய அறிவிப்புகள் & செயல்பாடுகள் / Latest Announcements & Activities</a></li>
+                        <li><a href="html/30-Association_Structure.html" target="contentFrame">நிர்வாகிகள் / Office Bearers</a></li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="#">உறுப்பினர்கள் / Members ▾</a>
+                    <ul class="dropdown">
+                        <li><a href="html/40-association_bylaw_abstract.html" target="contentFrame">உறுப்பினர் விதிமுறைகள் / Membership Rules</a></li>
+                        <li><a href="html/pdf/50-Membership_Form.pdf" target="contentFrame">விண்ணப்பப் படிவம் / Membership Form (PDF)</a></li>
+ 			<li><a href="html/UC_Message.html" target="contentFrame">உறுப்பினர்கள் பட்டியல் / Members List</a></li>
+			</ul>
+                </li>
+                
+                <li>
+                    <a href="#">செயல்பாடுகள் / Activities ▾</a>
+                    <ul class="dropdown">
+                        <li><a href="html/60- Photos & Memories.html" target="contentFrame">புகைப்படங்கள் / Photos</a></li>
+                        <li><a href="html/pdf/15_GB_Invitation.pdf" target="contentFrame">நிகழ்வுகள் / Past & Upcoming Events</a></li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="#">அறிவிப்புகள் / Notices ▾</a>
+                    <ul class="dropdown">
+                        <li><a href="html/80-Circulars.html" target="contentFrame">சுற்றறிக்கைகள் / Circulars</a></li>
+                        <li><a href="html/UC_Message.html" target="contentFrame">கூட்ட அறிவிப்புகள் - பிற / Meeting Notices - Others</a></li>
+                        <li><a href="html/UC_Message.html" target="contentFrame">செய்திமடல் / Newsletters</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="html/90-Contact_details.html" target="contentFrame">தொடர்புக்கு / Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <div class="announcement-bar">
+            <div class="thirukkural-scroll" aria-label="திருக்குறள் 637">
+                <div class="thirukkural-line kural-line">
+                    <div class="scroll-content">
+                        செயற்கை அறிந்தக் கடைத்தும் உலகத்து இயற்கை அறிந்து செயல். — திருக்குறள் 637
+                    </div>
+                </div>
+                <div class="thirukkural-line meaning-line">
+                    <div class="scroll-content">
+                        பொருள்: நூலறிவால் ஒரு செயலைச் செய்யும் நுட்பங்களை அறிந்திருந்தாலும், உலகத்தின் இயற்கை அமைப்பையும் நடைமுறையையும் அறிந்து அதற்கேற்பவே செயல்பட வேண்டும்.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <!-- All linked pages load directly inside this iFrame -->
+            <iframe name="contentFrame" class="content-frame" srcdoc="
+                <style>
+                    body { font-family: sans-serif; color: #333; line-height: 1.6; }
+                    .two-column-container { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; }
+                    .column-box h4 { color: #0056b3; font-size: 24px; margin-bottom: 10px; border-bottom: 2px solid #0056b3; padding-bottom: 5px; font-weight: bold; }
+                    .english-col p { margin-bottom: 12px; font-size: 18px; font-weight: bold; }
+                    .tamil-col p { margin-bottom: 12px; font-size: 16px; font-weight: bold; }
+                </style>
+                <div class='two-column-container'>
+                    <div class='column-box english-col'>
+                        <h4>WELCOME</h4>
+                        <p>Heartiest welcome to all our esteemed members, delegates, and well-wishers on the grand launch of the official website of the Tamil Nadu Pollution Control Board Pensioners Association!</p>
+                        <p>This digital platform is designed to keep our vibrant community connected, informed, and supported. It serves as a central hub for essential updates, association news, and activities meant for our members.</p>
+                        <p>Welcome aboard, and best wishes for a wonderful experience!</p>
+                    </div>
+                    <div class='column-box tamil-col'>
+                        <h4>நல்வரவு</h4>
+                        <p>தமிழ்நாடு மாசுக்கட்டுப்பாட்டு வாரிய ஓய்வூதியர் சங்கத்தின் புதிய அதிகாரப்பூர்வ வலைத்தளத் தொடக்க விழாவிற்கு, எங்களது மதிப்பிற்குரிய உறுப்பினர்கள், பிரதிநிதிகள் மற்றும் நலவிரும்பிகள் அனைவரையும் அன்போடு வரவேற்கிறோம்!</p>
+                        <p>நமது ஓய்வூதியர் சமூகத்தை எப்போதும் இணைப்பிலும், விழிப்புணர்வோடும் வைத்திருக்கவே இந்த டிஜிட்டல் தளம் உருவாக்கப்பட்டுள்ளது.</p>
+                        <p>அனைவருக்கும் மீண்டும் நல்வரவு மற்றும் மனமார்ந்த வாழ்த்துகள்!</p>
+                    </div>
+                </div>
+            "></iframe>
+        </main>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TNPCB Pensioners Association (TNPCBPA). All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
