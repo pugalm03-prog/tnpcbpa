@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advisory Committee / ஆலோசனைக் குழு</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 12px;
+        }
+
+        /* Responsive Grid: 4 columns on large screens */
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .committee-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .committee-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .committee-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .member-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .photo-container {
+            width: 150px;
+            height: 180px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: #f1f5f9;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name-en {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+        }
+
+        .name-ta {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Advisory Committee / ஆலோசனைக் குழு</h1>
+
+        <div class="committee-grid">
+            <!-- Row 1 -->
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_01.jpg" alt="Mr. Rangasamy. G">
+                </div>
+                <div class="name-en">Mr. Rangasamy. G</div>
+                <div class="name-ta">G. நெடிலசாமி, M.Tech</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_02.jpg" alt="Dr. Rayudu. V. N">
+                </div>
+                <div class="name-en">Dr. Rayudu. V. N</div>
+                <div class="name-ta">Dr. V.N. ராயுடு, M.Sc., Ph.D</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_03.jpg" alt="Mr. Ekambaram">
+                </div>
+                <div class="name-en">Mr. Ekambaram</div>
+                <div class="name-ta">D.S. ஏகாம்பரம், M.A., B.L.</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_04.jpg" alt="Dr. Mani. N">
+                </div>
+                <div class="name-en">Dr. Mani. N</div>
+                <div class="name-ta">Dr. N. மணி, M.Sc., Ph.D</div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_05.jpg" alt="Mr. Ramachandran. R">
+                </div>
+                <div class="name-en">Mr. Ramachandran. R</div>
+                <div class="name-ta">Dr. R. ராமச்சந்திரன், M.E., Ph.D</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_06.jpg" alt="Mr. Jayakumar T. C Ethiraju">
+                </div>
+                <div class="name-en">Mr. Jayakumar T. C Ethiraju</div>
+                <div class="name-ta">ஜெயக்குமார், டி.சி. எந்திரவியல், M.Tech</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_07.jpg" alt="Dr. Kumar. R">
+                </div>
+                <div class="name-en">Dr. Kumar. R</div>
+                <div class="name-ta">Dr. R. குமார், M.E., Ph.D</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_08.jpg" alt="Mrs. Chitra. K">
+                </div>
+                <div class="name-en">Mrs. Chitra. K</div>
+                <div class="name-ta">K. சித்ரா, M.Com., MBA., ACA</div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_09.jpg" alt="Mr. Mohan Naidu. R">
+                </div>
+                <div class="name-en">Mr. Mohan Naidu. R</div>
+                <div class="name-ta">R. மோகன்நாயுடு, M.E.</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_10.jpg" alt="Mr. Sundara Gopal. N">
+                </div>
+                <div class="name-en">Mr. Sundara Gopal. N</div>
+                <div class="name-ta">N. சுந்தரகோபால், M.E.</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_11.jpg" alt="Dr. Karthikeyan. K">
+                </div>
+                <div class="name-en">Dr. Karthikeyan. K</div>
+                <div class="name-ta">Dr. K. கார்த்திகேயன், M.Tech., Ph.D</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_12.jpg" alt="Mr. Kannan. R">
+                </div>
+                <div class="name-en">Mr. Kannan. R</div>
+                <div class="name-ta">R. கண்ணன், M.Tech.</div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_13.jpg" alt="Mr. Kumar. K">
+                </div>
+                <div class="name-en">Mr. Kumar. K</div>
+                <div class="name-ta">K. குமார், M.E.</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_14.jpg" alt="Mr. Gokuldas. K">
+                </div>
+                <div class="name-en">Mr. Gokuldas. K</div>
+                <div class="name-ta">K. கோகுலதாஸ், M.E.</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_15.jpg" alt="Mr. Asokan. P">
+                </div>
+                <div class="name-en">Mr. Asokan. P</div>
+                <div class="name-ta">P. அசோகன், M.E.</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_16.jpg" alt="Mr. Pugalendhi. M">
+                </div>
+                <div class="name-en">Mr. Pugalendhi. M</div>
+                <div class="name-ta">M. புகழேந்தி, M.Sc.</div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_17.jpg" alt="Mr. Sankar. T">
+                </div>
+                <div class="name-en">Mr. Sankar. T</div>
+                <div class="name-ta">T. சங்கர், B.A., PG.DPM</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_18.jpg" alt="Mr. Alagirisamy. J">
+                </div>
+                <div class="name-en">Mr. Alagirisamy. J</div>
+                <div class="name-ta">J. அழகிரிசாமி, B.Sc.</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_19.jpg" alt="Mr. Gunasekaran. M">
+                </div>
+                <div class="name-en">Mr. Gunasekaran. M</div>
+                <div class="name-ta">M. குணசேகரன், B.Com.</div>
+            </div>
+
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_20.jpg" alt="Mr. Asokan. T">
+                </div>
+                <div class="name-en">Mr. Asokan. T</div>
+                <div class="name-ta">T. அசோகன், M.Sc.</div>
+            </div>
+
+            <!-- Row 6 (Remaining) -->
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="Photos/Adv_C/AC_21.jpg" alt="Dr. Sakthivel. P">
+                </div>
+                <div class="name-en">Dr. Sakthivel. P</div>
+                <div class="name-ta">P. சக்திவேல், M.Sc.</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
